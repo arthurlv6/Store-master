@@ -1,0 +1,78 @@
+﻿@page "/Products"
+@inherits ProductsBase
+<h3>Products</h3>
+@if (PageDataModel == null || ProductCategoryModels ==null)
+{
+<p><em>Loading...</em></p>
+}
+else
+{
+<div class="row">
+    <div class="col-12">
+        <div class="btn-group mb-3">
+            <input type="text" class="form-control"
+                   @bind="nameFilter"
+                   placeholder="Filter by name" />
+            <select class="form-control" id="category" @bind="categoryId">
+                <option value="0" selected>Category</option>
+                @foreach (var category in ProductCategoryModels)
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            </select>
+            <button type="button" class="btn btn-primary mb-2"
+                    @onclick="Filter">
+                Search
+            </button>
+            <button class="btn btn-primary btn-primary mb-2" @onclick="ExportAsCSV">Export</button>
+            <button type="button" class="btn btn-primary mb-2"
+                    @onclick="Clear">
+                Clear
+            </button>
+        </div>
+    </div>
+</div>
+<GenericList Elements="PageDataModel.Data">
+    <NullTemplate>
+        <p><em>Loading...</em></p>
+    </NullTemplate>
+    <WithElementsTemplate>
+        <table class="table table-sm tab-content table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in PageDataModel.Data)
+                        {
+                <ProductLine @key="item" Item="item"></ProductLine>
+                        }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" style="padding-left:0px;">
+                        <Pagination TotaPagesQuantity="PageDataModel.PageQuantity" CurrentPage="currentPage" Radius="3"
+                                    SelectedPage="SelectedPage"></Pagination>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+
+    </WithElementsTemplate>
+</GenericList>
+
+}
+

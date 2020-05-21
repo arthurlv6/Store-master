@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAv3APVFKYAUKEdaEfNkWl4gAAAAACAAAAAAAQZgAAAAEAACAAAACUNN1FcozjrOmkrpIgJpEtdVjX7lib+G2dR7cBIwSIWQAAAAAOgAAAAAIAACAAAADkKglpyAeqnuXpONY/4CCg96KoAxnEgxFNXZD/gbOdt4AAAADGV9myHuykocyRieFcHzmsOw5d/iaxh/kIgm2LVz45qU7Otx7eMYvNNC2it8PKlvwU+/EHeeKp8SX1rWqKSH/LeqCwEsxF7hh5l3jlxmsm5rCC5AKsyr5EnelB6+bbtH7aTgziktMUedHXmW8lbfr4OZhynU0JoY4GOH7f7DXXWEAAAAB+ajB5wlMfac22UJkN1FJNVXzNrF0LCPwuyB6jzruRdFc5w/am4qngCEh3lu4dlNjpTmxt6tioH/JdWLbZJ4s7</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=47.93.48.244,1433%3bDatabase=store%3bUser Id=storeuser%3b Password=Great1</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

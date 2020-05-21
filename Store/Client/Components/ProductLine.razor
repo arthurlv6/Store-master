@@ -1,0 +1,77 @@
+﻿@inherits ProductLineBase
+
+<tr stye="background:grey">
+    <td>
+        @Item.Id
+    </td>
+    <td>
+        @Item.Name
+    </td>
+    <td>
+        @Item.Description
+    </td>
+    <td>
+        <button class="btn btn-outline-primary btn-sm" @onclick="@(() => ShowDetail(Item))">
+            Detail
+        </button>
+    </td>
+</tr>
+@if (Item.IsShowDetail)
+{
+    <tr>
+        <td colspan="4">
+            <div style="margin:5px;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <InputFile multiple OnChange="HandleSelection" />
+                        @if (selectedFiles != null)
+                        {
+                            foreach (var file in selectedFiles)
+                            {
+                                var isLoading = file.Data.Position > 0;
+
+                                <div class="file-row">
+                                    <!-- File info -->
+                                    <div>
+                                        <strong>@file.Name</strong>
+                                        Size: <strong>@file.Size bytes</strong>;
+                                        Last modified: <strong>@file.LastModified.ToShortDateString()</strong>;
+                                        Type: <strong>@file.Type</strong>
+                                    </div>
+
+                                    <!-- Upload button -->
+                                    <button @onclick="() => LoadFile(file)" disabled="@isLoading">
+                                        @if (!isLoading)
+                                        {
+                                            <span>Load</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Loaded @((100.0 * file.Data.Position / file.Size).ToString("0"))%</span>
+                                        }
+                                    </button>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach (var linkModel in Item.ProductLinks)
+                    {
+                        <div class="col-md-4 col-lg-3 col-xl-2 col-sm-6">
+                            <div class="card" style="min-width:200px;" >
+                                <img src="@linkModel.Address" class="card-img-top img-thumbnail img-fluid" alt="...">
+                                <div class="card-body">
+                                    <div class="btn-group btn-group-sm text-center" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-primary btn-sm">Main</button>
+                                        <button type="button" class="btn btn-primary btn-sm">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </td>
+    </tr>
+}

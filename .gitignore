@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Store/Client/bin
+/Store/Client/obj
+/Store/Server/bin
+/Store/Shared/obj
+/Store/Shared/bin
+/API/Store/Shared/obj
+/API/Store/Shared/bin
+/API/Store/Store.Api/obj
+/API/Store/Store.Api/bin

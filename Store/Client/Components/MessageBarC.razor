@@ -1,0 +1,14 @@
+﻿@implements IDisposable
+@inject GlobalMessage GlobalMessage
+<div class="animated slideInRight delay-2s" style="margin-right:auto;color:@GlobalMessage.Color">@GlobalMessage.Message</div>
+@code {
+    protected override void OnInitialized()
+    {
+        GlobalMessage.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        GlobalMessage.OnChange -= StateHasChanged;
+    }
+}
