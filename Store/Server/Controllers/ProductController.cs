@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Store.Server.Repos;
 using Store.Shared;
@@ -27,6 +28,24 @@ namespace Store.Server.Controllers
             var temp = await repo.GetPageData<Product, ProductModel>(page, size, keyword,categoryId);
             HttpContext.InsertPaginationParameterInResponse(temp.Item2);
             return Ok(temp.Item1);
+        }
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PartiallyUpdateStartOrStop(int id, [FromBody] JsonPatchDocument<ProductModel> patchDoc)
+        {
+            if (id == 0)
+                return BadRequest();
+
+            var requirement = await repo.GetOneAsync(id);
+            if (requirement == null)
+                return NotFound();
+
+            patchDoc.ApplyTo(requirement, ModelState);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            await repo.UpdateRequirementAsync(requirement);
+            return NoContent();
         }
     }
 }

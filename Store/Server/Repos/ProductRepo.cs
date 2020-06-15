@@ -37,5 +37,28 @@ namespace Store.Server.Repos
             var pagination = new PaginationModel() { Page = page, QuantityPerPage = size };
             return new Tuple<IEnumerable<M>, double>(await queryable.Where(nameExpected).Where(categoryExpected).Paginate(pagination).Select(d => d.ToModel<M>(mapper)).ToListAsync(),pagesQuantity);
         }
+        public async Task<ProductModel> GetOneAsync(int id)
+        {
+            var requirement = await dBContext.Products
+            .AsNoTracking()
+            .FirstOrDefaultAsync(d => d.Id == id);
+            if (requirement != null)
+                return requirement.ToModel<ProductModel>(mapper);
+            else
+                return null;
+        }
+        public async Task UpdateRequirementAsync(ProductModel productModel)
+        {
+            try
+            {
+                Product entity = dBContext.Products.First(d => d.Id == productModel.Id);
+                mapper.Map(productModel, entity);
+                await dBContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

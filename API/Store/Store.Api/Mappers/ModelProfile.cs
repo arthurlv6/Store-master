@@ -13,6 +13,7 @@ namespace Store.Api.Mappers
             CreateMap<ProductCategory, ProductCategoryModel>().ReverseMap();
             CreateMap<ProductLink, ProductLinkModel>()
                 .ReverseMap();
+            CreateMap<UserRefreshToken, UserRefreshTokenModel>().ReverseMap();
         }
     }
 }

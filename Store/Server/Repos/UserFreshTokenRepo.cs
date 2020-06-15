@@ -14,21 +14,42 @@ namespace Store.Server.Repos
         public UserFreshTokenRepo(ApplicationDbContext _dBContext, IMapper _mapper) : base(_dBContext, _mapper)
         {
         }
-        public void Add(string email,string refreshToken)
+        public void Add(UserInfo userInfo, string refreshToken)
         {
-            dBContext.UserRefreshTokens.Add(new UserRefreshToken { Name = email, RefreshToken = refreshToken });
+            dBContext.UserRefreshTokens.Add(new UserRefreshToken
+            {
+                Name = userInfo.Email,
+                RefreshToken = refreshToken,
+                Nickname = userInfo.Nickname,
+                Sex = userInfo.Sex,
+                City = userInfo.City,
+                Country = userInfo.Country,
+                Headimgurl = userInfo.Headimgurl,
+            });
             dBContext.SaveChanges();
         }
-        public void Update(string email, string refreshToken)
+        public void Update(UserInfo userInfo, string refreshToken)
         {
-            var userRefreshToken = dBContext.UserRefreshTokens.First(d => d.Name == email);
+            var userRefreshToken = dBContext.UserRefreshTokens.First(d => d.Name == userInfo.Email);
             userRefreshToken.RefreshToken = refreshToken;
+            userRefreshToken.Nickname = userInfo.Nickname;
+            userRefreshToken.Sex = userInfo.Sex;
+            userRefreshToken.City = userInfo.City;
+            userRefreshToken.Country = userInfo.Country;
+            userRefreshToken.Headimgurl = userInfo.Headimgurl;
             dBContext.SaveChanges();
         }
-        public string Get(string email)
+        public UserRefreshTokenModel Get(string email)
         {
-            var userRefreshToken = dBContext.UserRefreshTokens.First(d => d.Name == email);
-            return userRefreshToken.RefreshToken;
+            return dBContext.UserRefreshTokens.First(d => d.Name == email).ToModel<UserRefreshTokenModel>(mapper);
+        }
+        public bool IsExist(string email)
+        {
+            var token = dBContext.UserRefreshTokens.FirstOrDefault(d => d.Name == email);
+            if (token == null)
+                return false;
+            else
+                return true;
         }
     }
 }

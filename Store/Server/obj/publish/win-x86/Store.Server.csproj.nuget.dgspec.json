@@ -1,21 +1,18 @@
 {
   "format": 1,
   "restore": {
-    "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Server\\Store.Server.csproj": {}
+    "D:\\Programs\\2020\\Store-master\\Store\\Server\\Store.Server.csproj": {}
   },
   "projects": {
-    "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Client\\Store.Client.csproj": {
+    "D:\\Programs\\2020\\Store-master\\Store\\Client\\Store.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Client\\Store.Client.csproj",
+        "projectUniqueName": "D:\\Programs\\2020\\Store-master\\Store\\Client\\Store.Client.csproj",
         "projectName": "Store.Client",
-        "projectPath": "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Client\\Store.Client.csproj",
+        "projectPath": "D:\\Programs\\2020\\Store-master\\Store\\Client\\Store.Client.csproj",
         "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
-        "outputPath": "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Client\\obj\\",
+        "outputPath": "D:\\Programs\\2020\\Store-master\\Store\\Client\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -25,14 +22,13 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://kotahi.pkgs.visualstudio.com/_packaging/KotahiPackages/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
             "projectReferences": {
-              "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Shared\\Store.Shared.csproj": {
-                "projectPath": "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Shared\\Store.Shared.csproj"
+              "D:\\Programs\\2020\\Store-master\\Store\\Shared\\Store.Shared.csproj": {
+                "projectPath": "D:\\Programs\\2020\\Store-master\\Store\\Shared\\Store.Shared.csproj"
               }
             }
           }
@@ -60,25 +56,25 @@
             },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",
-              "version": "[3.2.0-preview4.20210.8, )"
+              "version": "[3.2.0, )"
             },
             "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
               "target": "Package",
-              "version": "[3.2.0-preview4.20210.8, )"
+              "version": "[3.2.0, )"
             },
             "Microsoft.AspNetCore.Components.WebAssembly.Build": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.2.0-preview4.20210.8, )"
+              "version": "[3.2.0, )"
             },
             "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.2.0-preview4.20210.8, )"
+              "version": "[3.2.0, )"
             },
             "System.Net.Http.Json": {
               "target": "Package",
-              "version": "[3.2.0-preview5.20210.3, )"
+              "version": "[3.2.0, )"
             }
           },
           "imports": [
@@ -96,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300-preview-015095\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400-preview-015151\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -105,18 +101,15 @@
         }
       }
     },
-    "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Server\\Store.Server.csproj": {
+    "D:\\Programs\\2020\\Store-master\\Store\\Server\\Store.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Server\\Store.Server.csproj",
+        "projectUniqueName": "D:\\Programs\\2020\\Store-master\\Store\\Server\\Store.Server.csproj",
         "projectName": "Store.Server",
-        "projectPath": "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Server\\Store.Server.csproj",
+        "projectPath": "D:\\Programs\\2020\\Store-master\\Store\\Server\\Store.Server.csproj",
         "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
-        "outputPath": "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Server\\obj\\publish\\win-x86\\",
+        "outputPath": "D:\\Programs\\2020\\Store-master\\Store\\Server\\obj\\publish\\win-x86\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -126,17 +119,16 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://kotahi.pkgs.visualstudio.com/_packaging/KotahiPackages/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Client\\Store.Client.csproj": {
-                "projectPath": "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Client\\Store.Client.csproj"
+              "D:\\Programs\\2020\\Store-master\\Store\\Client\\Store.Client.csproj": {
+                "projectPath": "D:\\Programs\\2020\\Store-master\\Store\\Client\\Store.Client.csproj"
               },
-              "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Shared\\Store.Shared.csproj": {
-                "projectPath": "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Shared\\Store.Shared.csproj"
+              "D:\\Programs\\2020\\Store-master\\Store\\Shared\\Store.Shared.csproj": {
+                "projectPath": "D:\\Programs\\2020\\Store-master\\Store\\Shared\\Store.Shared.csproj"
               }
             }
           }
@@ -164,7 +156,7 @@
             },
             "Microsoft.AspNetCore.Components.WebAssembly.Server": {
               "target": "Package",
-              "version": "[3.2.0-preview4.20210.8, )"
+              "version": "[3.2.0, )"
             },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
@@ -193,6 +185,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.3.1, )"
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[3.2.0, )"
             }
           },
           "imports": [
@@ -227,7 +223,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300-preview-015095\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400-preview-015151\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -236,18 +232,15 @@
         }
       }
     },
-    "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Shared\\Store.Shared.csproj": {
+    "D:\\Programs\\2020\\Store-master\\Store\\Shared\\Store.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Shared\\Store.Shared.csproj",
+        "projectUniqueName": "D:\\Programs\\2020\\Store-master\\Store\\Shared\\Store.Shared.csproj",
         "projectName": "Store.Shared",
-        "projectPath": "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Shared\\Store.Shared.csproj",
+        "projectPath": "D:\\Programs\\2020\\Store-master\\Store\\Shared\\Store.Shared.csproj",
         "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
-        "outputPath": "D:\\program\\2020\\StoreCurrentGit\\Store\\Store\\Shared\\obj\\",
+        "outputPath": "D:\\Programs\\2020\\Store-master\\Store\\Shared\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -257,8 +250,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://kotahi.pkgs.visualstudio.com/_packaging/KotahiPackages/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
@@ -302,7 +294,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300-preview-015095\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400-preview-015151\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

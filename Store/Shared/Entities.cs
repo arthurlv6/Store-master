@@ -52,4 +52,28 @@ namespace Store.Shared
         public DateTime CreatedDate { get; set; }
         public virtual Product Product { get; set; }
     }
+    public class UserOrder : BaseEntity
+    {
+        public string UserId { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public ICollection<UserOrderLine> UserOrderLines { get; set; }
+    }
+    public class UserOrderLine : BaseEntity
+    {
+        public UserOrder UserOrder { get; set; }
+        public int UserOrderId { get; set; }
+        public int ProductId { get; set; }
+        public string Code { get; set; }
+        public string Style { get; set; }
+        public string Color { get; set; }
+        public string Size { get; set; }
+        public decimal Price { get; set; }
+        public int Quatity { get; set; }
+        public string Description { get; set; }
+        public decimal? RRP { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int ProductCategoryId { get; set; }
+    }
 }

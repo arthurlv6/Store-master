@@ -15,6 +15,8 @@ namespace Store.Client.Components
         public ProductModel Item { get; set; }
         [Inject]
         protected ProductLinkService ProductLinkService { get; set; }
+        [Inject]
+        protected ProductService ProductService { get; set; }
         protected override void OnInitialized()
         {
             foreach (var item in Item.ProductLinks)
@@ -50,7 +52,7 @@ namespace Store.Client.Components
             if (imageUrl != null)
             {
                 Item.ProductLinks.Insert(0,new ProductLinkModel() { ProductId = model.ProductId, Address = imageUrl });
-                GlobalMsg.SetMessage("File " + file.Name + " uploaded.", MessageLevel.Error);
+                GlobalMsg.SetMessage("File " + file.Name + " uploaded.", MessageLevel.Normal);
             }
             else
             {
@@ -60,6 +62,13 @@ namespace Store.Client.Components
         protected void Remove(int id)
         {
 
+        }
+        protected async Task Change(ChangeEventArgs e, PatchUpdateItem patchUpdateItem)
+        {
+            var val = e.Value.ToString();
+            var isDone = await ProductService.UpdateAsync(Item.Id,val, patchUpdateItem);
+            if (!isDone)
+                GlobalMsg.SetMessage("Failed to change the name");
         }
     }
 }

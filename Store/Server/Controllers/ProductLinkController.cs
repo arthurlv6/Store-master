@@ -38,9 +38,9 @@ namespace Store.Server.Controllers
 
             var image = model.File;
             var endpoint = "oss-ap-southeast-2.aliyuncs.com";// "oss-cn-beijing.aliyuncs.com";
-            var accessKeyId = "LTAI4FudBKLm3RvQHaT4vLCr";
-            var accessKeySecret = "65rLNgVtajiHnEKqLsZNScDaGl3jMJ";
-            var bucketName = "neartonztesting";// "storebucketfordotnetcore";
+            var accessKeyId = "LTAI4G9pg2kHGVCogMQcY7Qy";
+            var accessKeySecret = "GgkXksAyAbqXcrgcxoxZGz7eBG8aIu";
+            var bucketName = "nearnz";// "storebucketfordotnetcore";
             var objectName = Guid.NewGuid().ToString() + Path.GetExtension(model.File.FileName);
             // Create an OSSClient instance.
             var client = new OssClient(endpoint, accessKeyId, accessKeySecret);
@@ -53,7 +53,7 @@ namespace Store.Server.Controllers
             productLinkModel.Type=Path.GetExtension(model.File.FileName);
             productLinkModel.Address= objectName;
             repo.AddProductLink(productLinkModel);
-            return Ok("https://neartonztesting.oss-ap-southeast-2.aliyuncs.com/"+objectName);
+            return Ok("https://nearnz.oss-ap-southeast-2.aliyuncs.com/" + objectName);
         }
     }
 }

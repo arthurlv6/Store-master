@@ -11,9 +11,9 @@ else
     <div class="col-12">
         <div class="btn-group mb-3">
             <input type="text" class="form-control"
-                   @bind="nameFilter"
-                   placeholder="Filter by name" />
-            <select class="form-control" id="category" @bind="categoryId">
+                   value="@nameFilter"
+                   placeholder="Filter by name" @onchange="@(e=>Change(e,SearchItem.Name))"/>
+            <select class="form-control" id="category" value="@categoryId" @onchange="@(e=>Change(e,SearchItem.Category))">
                 <option value="0" selected>Category</option>
                 @foreach (var category in ProductCategoryModels)
                 {
@@ -25,10 +25,6 @@ else
                 Search
             </button>
             <button class="btn btn-primary btn-primary mb-2" @onclick="ExportAsCSV">Export</button>
-            <button type="button" class="btn btn-primary mb-2"
-                    @onclick="Clear">
-                Clear
-            </button>
         </div>
     </div>
 </div>
@@ -41,10 +37,25 @@ else
             <thead>
                 <tr>
                     <th>
-                        Id
+                        Code
                     </th>
                     <th>
                         Name
+                    </th>
+                    <th>
+                        Style
+                    </th>
+                    <th>
+                        Color
+                    </th>
+                    <th>
+                        Size
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Quatity
                     </th>
                     <th>
                         Description

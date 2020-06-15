@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30014.187
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Server", "Store\Server\Store.Server.csproj", "{670F0261-4B52-41A2-BB1C-22116F330B23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Server", "Store\Server\Store.Server.csproj", "{670F0261-4B52-41A2-BB1C-22116F330B23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Client", "Store\Client\Store.Client.csproj", "{29CD3365-5706-4DBE-97CD-FF8F2E08224F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Client", "Store\Client\Store.Client.csproj", "{29CD3365-5706-4DBE-97CD-FF8F2E08224F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Shared", "Store\Shared\Store.Shared.csproj", "{A5ECAAE3-07B3-463D-920F-A61E84F27C57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Shared", "Store\Shared\Store.Shared.csproj", "{A5ECAAE3-07B3-463D-920F-A61E84F27C57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

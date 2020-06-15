@@ -35,10 +35,23 @@ namespace Store.Client.Pages
         protected override async Task OnInitializedAsync()
         {
             var tokenResult = await AuthenticationService.RequestAccessToken();
-            tokenResult.TryGetToken(out var tokenReference, redirect: true);
+            tokenResult.TryGetToken(out var tokenReference);
             token = tokenReference.Value;
             await LoadProducts();
             ProductCategoryModels = await Categoryservice.GetAll(new ProductCategoryModel(),token);
+        }
+        protected async Task Change(ChangeEventArgs e, SearchItem searchItem)
+        {
+            if(searchItem== SearchItem.Name)
+            {
+                nameFilter = e.Value.ToString();
+            }
+            if (searchItem == SearchItem.Category)
+            {
+                categoryId = e.Value.ToString();
+            }
+            currentPage = 1;
+            await LoadProducts();
         }
 
         protected async Task SelectedPage(int page)

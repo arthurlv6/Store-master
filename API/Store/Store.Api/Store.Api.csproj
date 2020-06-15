@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>2c74a1d0-e74b-4ec4-9305-6142e3e869f7</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Aliyun.OSS.SDK.NetCore" Version="2.10.0" />

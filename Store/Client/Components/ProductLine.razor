@@ -1,25 +1,40 @@
 ﻿@inherits ProductLineBase
 
-<tr stye="background:grey">
-    <td>
-        @Item.Id
-    </td>
-    <td>
-        @Item.Name
-    </td>
-    <td>
-        @Item.Description
-    </td>
-    <td>
-        <button class="btn btn-outline-primary btn-sm" @onclick="@(() => ShowDetail(Item))">
-            Detail
-        </button>
-    </td>
-</tr>
+    <tr stye="background:grey">
+        <td>
+            @Item.Code
+        </td>
+        <td>
+            <input value=@Item.Name type="text" class="form-control" @onchange="@(e=>Change(e,PatchUpdateItem.Name))" />
+        </td>
+        <td>
+            <input value=@Item.Style type="text" class="form-control" @onchange="@(e=>Change(e,PatchUpdateItem.Style))" />
+        </td>
+        <td>
+            <input value=@Item.Color type="text" class="form-control" @onchange="@(e=>Change(e,PatchUpdateItem.Color))" />
+        </td>
+        <td>
+            <input value=@Item.Size type="text" class="form-control" @onchange="@(e=>Change(e,PatchUpdateItem.Size))" />
+        </td>
+        <td>
+            <input value=@Item.Price type="number" class="form-control" @onchange="@(e=>Change(e,PatchUpdateItem.Price))" />
+        </td>
+        <td>
+            <input value=@Item.Quatity type="number" class="form-control" @onchange="@(e=>Change(e,PatchUpdateItem.Quatity))" />
+        </td>
+        <td>
+            <input value=@Item.Description type="text" class="form-control" @onchange="@(e=>Change(e,PatchUpdateItem.Description))" />
+        </td>
+        <td>
+            <button class="btn btn-outline-primary btn-sm" @onclick="@(() => ShowDetail(Item))">
+                Detail
+            </button>
+        </td>
+    </tr>
 @if (Item.IsShowDetail)
 {
     <tr>
-        <td colspan="4">
+        <td colspan="9">
             <div style="margin:5px;">
                 <div class="row">
                     <div class="col-md-12">
@@ -55,17 +70,15 @@
                         }
                     </div>
                 </div>
-                <div class="row">
+                <div class="row d-flex flex-wrap align-items-start">
                     @foreach (var linkModel in Item.ProductLinks)
                     {
-                        <div class="col-md-4 col-lg-3 col-xl-2 col-sm-6">
-                            <div class="card" style="min-width:200px;" >
-                                <img src="@linkModel.Address" class="card-img-top img-thumbnail img-fluid" alt="...">
-                                <div class="card-body">
-                                    <div class="btn-group btn-group-sm text-center" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-primary btn-sm">Main</button>
-                                        <button type="button" class="btn btn-primary btn-sm">Remove</button>
-                                    </div>
+                        <div class="card m-2" style="min-width:200px;max-width:300px;" >
+                            <img src="@linkModel.Address" class="card-img-top img-thumbnail img-fluid" alt="...">
+                            <div class="card-body">
+                                <div class="btn-group btn-group-sm text-center" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-primary btn-sm">Main</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Remove</button>
                                 </div>
                             </div>
                         </div>

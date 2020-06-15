@@ -80,6 +80,7 @@ namespace Store.Shared
     public class ProductCategoryModel : BaseModel
     {
         public int ShowOrder { get; set; }
+        public int? ParentId { get; set; }
     }
     public class ProductLinkModel : BaseModel
     {
@@ -96,4 +97,47 @@ namespace Store.Shared
         public Stream Image { get; set; }
         public string ImageName { get; set; }
     }
+    public class UserOrderModel : BaseModel
+    {
+        public string UserId { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+        public DateTime CreatedDate { get; set; }
+    }
+    public class UserOrderLineModel : BaseModel
+    {
+        public int ProductId { get; set; }
+        public string Code { get; set; }
+        public string Style { get; set; }
+        public string Color { get; set; }
+        public string Size { get; set; }
+        public decimal Price { get; set; }
+        public int Quatity { get; set; }
+        public string Description { get; set; }
+        public decimal? RRP { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int ProductCategoryId { get; set; }
+    }
+    public class PatchUpdate
+    {
+        public string op { get; set; }
+        public string path { get; set; }
+        public string value { get; set; }
+    }
+    public enum PatchUpdateItem
+    {
+        Name,
+        Style,
+        Color,
+        Size,
+        Price,
+        Quatity,
+        Description
+    }
+    public enum SearchItem
+    {
+        Name,
+        Category
+    }
+    
 }

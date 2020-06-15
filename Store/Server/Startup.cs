@@ -22,6 +22,8 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
 
 namespace Store.Server
 {
@@ -66,8 +68,21 @@ namespace Store.Server
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
 
-            services.AddAuthentication()
-                .AddIdentityServerJwt();
+            //services.AddAuthentication()
+            //    .AddIdentityServerJwt();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+              .AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters
+              {
+                  ValidateIssuer = false,
+                  ValidateAudience = false,
+                  ValidateLifetime = true,
+                  ValidateIssuerSigningKey = true,
+                  IssuerSigningKey = new SymmetricSecurityKey(
+                  Encoding.UTF8.GetBytes("LKM3LKM344NKSJDFN4KJ345N43KJN4KJFNKDJFSNDKFJN4KJKJN4")),
+                  ClockSkew = TimeSpan.Zero
+              })
+              .AddIdentityServerJwt();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
