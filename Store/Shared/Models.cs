@@ -103,6 +103,7 @@ namespace Store.Shared
         public string Phone { get; set; }
         public string Address { get; set; }
         public DateTime CreatedDate { get; set; }
+        public ICollection<UserOrderLineModel> UserOrderLines { get; set; }
     }
     public class UserOrderLineModel : BaseModel
     {

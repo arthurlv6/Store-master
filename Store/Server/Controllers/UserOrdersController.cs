@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using Store.Server.Repos;
+using Store.Shared;
 
 namespace Store.Server.Controllers
 {
@@ -12,59 +13,56 @@ namespace Store.Server.Controllers
     [ApiController]
     public class UserOrdersController : ControllerBase
     {
-        private readonly ProductRepo repo;
-        public ProductController(ProductRepo _repo)
+        private readonly UserOrderRepo repo;
+        public UserOrdersController(UserOrderRepo _repo)
         {
             repo = _repo;
         }
         // GET: api/Product
         [HttpGet]
-        public async Task<IActionResult> Get(int page = 1, int size = 20, string keyword = "", string categoryId = "0")
+        public async Task<IActionResult> Get(int page = 1, int size = 20, string keyword = "")
         {
             if (page < 1) return BadRequest("page can't be negative.");
             if (size < 1) return BadRequest("Page size can't be negative");
 
-            var temp = await repo.GetPageData<Product, ProductModel>(page, size, keyword, categoryId);
+            var temp = await repo.GetPageData<UserOrder, UserOrderModel>(page, size, keyword);
             HttpContext.InsertPaginationParameterInResponse(temp.Item2);
             return Ok(temp.Item1);
         }
+
         [HttpPatch("{id}")]
-        public async Task<IActionResult> PartiallyUpdateStartOrStop(int id, [FromBody] JsonPatchDocument<ProductModel> patchDoc)
+        public async Task<IActionResult> PartiallyUpdateStartOrStop(int id, [FromBody] JsonPatchDocument<UserOrderModel> patchDoc)
         {
             if (id == 0)
                 return BadRequest();
 
-            var requirement = await repo.GetOneAsync(id);
-            if (requirement == null)
+            var orderModel = await repo.GetOneAsync(id);
+            if (orderModel == null)
                 return NotFound();
 
-            patchDoc.ApplyTo(requirement, ModelState);
+            patchDoc.ApplyTo(orderModel, ModelState);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            await repo.UpdateRequirementAsync(requirement);
+            await repo.UpdateRequirementAsync(orderModel);
             return NoContent();
         }
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        
 
-        // GET api/<UserOrdersController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<UserOrdersController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] UserOrderModel userOrderModel)
         {
-        }
+            if (userOrderModel == null)
+                return BadRequest();
 
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var created = await repo.Add<UserOrder,UserOrderModel>(userOrderModel);
+
+            return Created("UserOrder", created);
+        }
         // PUT api/<UserOrdersController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)

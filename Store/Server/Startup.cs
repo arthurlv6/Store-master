@@ -59,6 +59,7 @@ namespace Store.Server
             services.AddScoped<ProductCategoryRepo>();
             services.AddScoped<ProductLinkRepo>();
             services.AddScoped<WechatRepos>();
+            services.AddScoped<UserOrderRepo>();
             //
             services.AddScoped<DataSeeder>();
 
@@ -100,7 +101,7 @@ namespace Store.Server
                     Version = "1.0.1"
                 });
             });
-
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -168,6 +169,7 @@ namespace Store.Server
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
+                endpoints.MapDefaultControllerRoute();
                 endpoints.MapFallbackToFile("index.html");
             });
             app.UseSwagger();

@@ -13,6 +13,10 @@ namespace Store.Server.Mappers
             CreateMap<ProductCategory, ProductCategoryModel>().ReverseMap();
             CreateMap<ProductLink, ProductLinkModel>()
                 .ReverseMap();
+            CreateMap<UserOrder, UserOrderModel>()
+                .ReverseMap();
+            CreateMap<UserOrderLine, UserOrderLineModel>()
+                .ReverseMap();
         }
     }
 }
