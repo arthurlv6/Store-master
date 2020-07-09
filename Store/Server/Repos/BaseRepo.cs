@@ -30,7 +30,7 @@ namespace Store.Server.Repos
         {
             T create = mapper.Map<T>(m);
             var addedEntity = dBContext.Set<T>().Add(create);
-            await dBContext.SaveChangesAsync();
+            await dBContext.SaveChangesAsync();            
             return addedEntity.Entity.ToModel<M>(mapper);
         }
     }

@@ -54,7 +54,6 @@ namespace Store.Shared
     }
     public class UserOrder : BaseEntity
     {
-        public string UserId { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
         public DateTime CreatedDate { get; set; }
@@ -62,7 +61,6 @@ namespace Store.Shared
     }
     public class UserOrderLine : BaseEntity
     {
-        public UserOrder UserOrder { get; set; }
         public int UserOrderId { get; set; }
         public int ProductId { get; set; }
         public string Code { get; set; }
@@ -73,7 +71,5 @@ namespace Store.Shared
         public int Quatity { get; set; }
         public string Description { get; set; }
         public decimal? RRP { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public int ProductCategoryId { get; set; }
     }
 }

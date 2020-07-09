@@ -60,5 +60,17 @@ namespace Store.Server.Repos
                 throw ex;
             }
         }
+        public bool ValidateId(int ProductId)
+        {
+            try
+            {
+                dBContext.Products.First(d => d.Id == ProductId);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

@@ -35,5 +35,17 @@ namespace Store.Api.Repos
             var pagination = new PaginationModel() { Page = page, QuantityPerPage = size };
             return new Tuple<IEnumerable<M>, double>(await queryable.Where(nameExpected).Where(categoryExpected).Paginate(pagination).Select(d => d.ToModel<M>(mapper)).ToListAsync(), pagesQuantity);
         }
+        public bool ValidateId(int ProductId)
+        {
+            try
+            {
+                dBContext.Products.First(d => d.Id == ProductId);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

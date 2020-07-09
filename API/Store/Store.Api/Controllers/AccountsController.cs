@@ -180,11 +180,11 @@ namespace Store.Api.Controllers
             {
                 new Claim(JwtRegisteredClaimNames.UniqueName, userInfo.Email),
                 new Claim(ClaimTypes.Name, userInfo.Email),
-                new Claim("Nickname", userInfo.Nickname),
-                new Claim("Sex", userInfo.Sex),
-                new Claim("City", userInfo.City),
-                new Claim("Country", userInfo.Country),
-                new Claim("Headimgurl", userInfo.Headimgurl),
+                new Claim("Nickname", userInfo.Nickname??""),
+                new Claim("Sex", userInfo.Sex??""),
+                new Claim("City", userInfo.City??""),
+                new Claim("Country", userInfo.Country??""),
+                new Claim("Headimgurl", userInfo.Headimgurl??""),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 

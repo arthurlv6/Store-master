@@ -24,7 +24,7 @@ namespace Store.Server.Controllers
         {
             if (page < 1) return BadRequest("page can't be negative.");
             if (size < 1) return BadRequest("Page size can't be negative");
-
+            
             var temp = await repo.GetPageData<Product, ProductModel>(page, size, keyword,categoryId);
             HttpContext.InsertPaginationParameterInResponse(temp.Item2);
             return Ok(temp.Item1);
@@ -47,5 +47,6 @@ namespace Store.Server.Controllers
             await repo.UpdateRequirementAsync(requirement);
             return NoContent();
         }
+
     }
 }

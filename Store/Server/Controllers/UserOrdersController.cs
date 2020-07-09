@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Store.Server.Repos;
@@ -11,12 +12,15 @@ namespace Store.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class UserOrdersController : ControllerBase
     {
         private readonly UserOrderRepo repo;
-        public UserOrdersController(UserOrderRepo _repo)
+        private readonly ProductRepo productRepo;
+        public UserOrdersController(UserOrderRepo _repo, ProductRepo _productRepo)
         {
             repo = _repo;
+            productRepo = _productRepo;
         }
         // GET: api/Product
         [HttpGet]
@@ -53,12 +57,20 @@ namespace Store.Server.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] UserOrderModel userOrderModel)
         {
+            var temp = User;
             if (userOrderModel == null)
                 return BadRequest();
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
+            foreach (var item in userOrderModel.UserOrderLines)
+            {
+                if (!productRepo.ValidateId(item.ProductId))
+                {
+                    return BadRequest("Product Id was not validated.");
+                }
+            }
+            
             var created = await repo.Add<UserOrder,UserOrderModel>(userOrderModel);
 
             return Created("UserOrder", created);

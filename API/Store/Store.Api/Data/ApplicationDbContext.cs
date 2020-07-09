@@ -22,5 +22,7 @@ namespace Store.Api.Data
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductCategory> ProductCategories { get; set; }
         public virtual DbSet<ProductLink> ProductLinks { get; set; }
+        public virtual DbSet<UserOrder> UserOrders { get; set; }
+        public virtual DbSet<UserOrderLine> UserOrderLines { get; set; }
     }
 }

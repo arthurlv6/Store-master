@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Client", "Store\Clien
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Shared", "Store\Shared\Store.Shared.csproj", "{A5ECAAE3-07B3-463D-920F-A61E84F27C57}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Api", "API\Store\Store.Api\Store.Api.csproj", "{EF2CDB90-2543-4209-A9DD-12D75175BD1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A5ECAAE3-07B3-463D-920F-A61E84F27C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5ECAAE3-07B3-463D-920F-A61E84F27C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5ECAAE3-07B3-463D-920F-A61E84F27C57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF2CDB90-2543-4209-A9DD-12D75175BD1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF2CDB90-2543-4209-A9DD-12D75175BD1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF2CDB90-2543-4209-A9DD-12D75175BD1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF2CDB90-2543-4209-A9DD-12D75175BD1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

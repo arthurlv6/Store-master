@@ -99,7 +99,6 @@ namespace Store.Shared
     }
     public class UserOrderModel : BaseModel
     {
-        public string UserId { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
         public DateTime CreatedDate { get; set; }
@@ -116,8 +115,6 @@ namespace Store.Shared
         public int Quatity { get; set; }
         public string Description { get; set; }
         public decimal? RRP { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public int ProductCategoryId { get; set; }
     }
     public class PatchUpdate
     {

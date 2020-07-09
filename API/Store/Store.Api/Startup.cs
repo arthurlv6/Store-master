@@ -58,6 +58,7 @@ namespace Store.Api
             services.AddScoped<ProductCategoryRepo>();
             services.AddScoped<ProductLinkRepo>();
             services.AddScoped<WechatRepos>();
+            services.AddScoped<UserOrderRepo>();
             //
             services.AddScoped<DataSeeder>();
 

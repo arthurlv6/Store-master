@@ -28,5 +28,12 @@ namespace Store.Api.Repos
                 .Take(size)
                 .Select(d => d.ToModel<M>(mapper));
         }
+        public virtual async Task<M> Add<T, M>(M m) where T : BaseEntity where M : BaseModel
+        {
+            T create = mapper.Map<T>(m);
+            var addedEntity = dBContext.Set<T>().Add(create);
+            await dBContext.SaveChangesAsync();
+            return addedEntity.Entity.ToModel<M>(mapper);
+        }
     }
 }
