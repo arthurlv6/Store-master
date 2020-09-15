@@ -1,5 +1,6 @@
 ﻿using Aliyun.OSS;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Store.Server.Repos;
 using Store.Shared;
 using System;
@@ -12,9 +13,11 @@ namespace Store.Server.Controllers
     public class ProductLinkController : ControllerBase
     {
         private readonly ProductLinkRepo repo;
-        public ProductLinkController(ProductLinkRepo _repo)
+        private readonly IConfiguration configuration;
+        public ProductLinkController(ProductLinkRepo _repo, IConfiguration _configuration)
         {
             repo = _repo;
+            configuration = _configuration;
         }
         // GET: api/Product
         [HttpGet]
@@ -37,10 +40,12 @@ namespace Store.Server.Controllers
                 return BadRequest(ModelState);
 
             var image = model.File;
-            var endpoint = "oss-ap-southeast-2.aliyuncs.com";// "oss-cn-beijing.aliyuncs.com";
-            var accessKeyId = "LTAI4G9pg2kHGVCogMQcY7Qy";
-            var accessKeySecret = "GgkXksAyAbqXcrgcxoxZGz7eBG8aIu";
-            var bucketName = "nearnz";// "storebucketfordotnetcore";
+
+            var endpoint = configuration.GetValue<string>("endpoint");
+            var accessKeyId = configuration.GetValue<string>("accessKeyId");
+            var accessKeySecret = configuration.GetValue<string>("accessKeySecret");
+            var bucketName = configuration.GetValue<string>("bucketName");
+
             var objectName = Guid.NewGuid().ToString() + Path.GetExtension(model.File.FileName);
             // Create an OSSClient instance.
             var client = new OssClient(endpoint, accessKeyId, accessKeySecret);

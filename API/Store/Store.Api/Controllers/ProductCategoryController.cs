@@ -9,7 +9,6 @@ namespace Store.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class ProductCategoryController : ControllerBase
     {
         private readonly ProductCategoryRepo repo;

@@ -1,0 +1,6 @@
+D:\Programs\2020\Store-master\Store.Database\bin\Debug\Store.Database.dacpac
+D:\Programs\2020\Store-master\Store.Database\bin\Debug\Store.Database.dll
+D:\Programs\2020\Store-master\Store.Database\bin\Debug\Store.Database.pdb
+D:\Programs\2020\Store-master\Store.Database\obj\Debug\Store.Database.dll
+D:\Programs\2020\Store-master\Store.Database\obj\Debug\Store.Database.pdb
+D:\Programs\2020\Store-master\Store.Database\obj\Debug\Store.Database.sqlprojAssemblyReference.cache

@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Shared", "Store\Share
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Api", "API\Store\Store.Api\Store.Api.csproj", "{EF2CDB90-2543-4209-A9DD-12D75175BD1B}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Store.Database", "Store.Database\Store.Database.sqlproj", "{6D566549-4E5D-47B4-B816-C5EBC235D262}"
+EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "Store.ARM", "Store.ARM\Store.ARM.deployproj", "{6106DDEF-A120-41A4-B358-A2BE5BEBF4CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,16 @@ Global
 		{EF2CDB90-2543-4209-A9DD-12D75175BD1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF2CDB90-2543-4209-A9DD-12D75175BD1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF2CDB90-2543-4209-A9DD-12D75175BD1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D566549-4E5D-47B4-B816-C5EBC235D262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D566549-4E5D-47B4-B816-C5EBC235D262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D566549-4E5D-47B4-B816-C5EBC235D262}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6D566549-4E5D-47B4-B816-C5EBC235D262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D566549-4E5D-47B4-B816-C5EBC235D262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D566549-4E5D-47B4-B816-C5EBC235D262}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6106DDEF-A120-41A4-B358-A2BE5BEBF4CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6106DDEF-A120-41A4-B358-A2BE5BEBF4CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6106DDEF-A120-41A4-B358-A2BE5BEBF4CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6106DDEF-A120-41A4-B358-A2BE5BEBF4CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

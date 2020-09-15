@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "hostingPlanName": {
+      "value": "dev-tsp-plan"
+    },
+    "administratorLogin": {
+      "value": "serverAdmin"
+    },
+    "administratorLoginPassword": {
+      "value": "Server!1"
+    },
+    "databaseName": {
+      "value": "tsp-dev-database"
+    },
+    "webSiteName": {
+      "value": "tsp-dev"
+    },
+    "sqlserverName": {
+      "value": "tspdevsqlserver"
+    },
+    "skuName": {
+      "value": "S1"
+    }
+  }
+}

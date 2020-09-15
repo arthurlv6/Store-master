@@ -13,7 +13,7 @@ namespace Store.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class UserOrdersController : ControllerBase
     {
         private readonly UserOrderRepo repo;
@@ -33,25 +33,6 @@ namespace Store.Api.Controllers
             var temp = await repo.GetPageData<UserOrder, UserOrderModel>(page, size, keyword);
             HttpContext.InsertPaginationParameterInResponse(temp.Item2);
             return Ok(temp.Item1);
-        }
-
-        [HttpPatch("{id}")]
-        public async Task<IActionResult> PartiallyUpdateStartOrStop(int id, [FromBody] JsonPatchDocument<UserOrderModel> patchDoc)
-        {
-            if (id == 0)
-                return BadRequest();
-
-            var orderModel = await repo.GetOneAsync(id);
-            if (orderModel == null)
-                return NotFound();
-
-            patchDoc.ApplyTo(orderModel, ModelState);
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            await repo.UpdateRequirementAsync(orderModel);
-            return NoContent();
         }
         
 
@@ -78,16 +59,6 @@ namespace Store.Api.Controllers
 
             return Created("UserOrder", created);
         }
-        // PUT api/<UserOrdersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<UserOrdersController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        
     }
 }
